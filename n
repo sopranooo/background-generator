@@ -1,0 +1,87 @@
+[33mcommit ba8b84107bfbe009c9c0390bac99112a3ec40e76[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Steinfeld <steinfeld@itsc.local>
+Date:   Fri Jan 31 11:27:06 2020 +0100
+
+    adding starting project
+
+[1mdiff --git a/index.html b/index.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8a3130f[m
+[1m--- /dev/null[m
+[1m+++ b/index.html[m
+[36m@@ -0,0 +1,15 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html>[m
+[32m+[m[32m<head>[m
+[32m+[m	[32m<title>Gradient Background</title>[m
+[32m+[m	[32m<link rel="stylesheet" type="text/css" href="style.css">[m
+[32m+[m[32m</head>[m
+[32m+[m[32m<body id="gradient">[m
+[32m+[m	[32m<h1>Background Generator</h1>[m
+[32m+[m	[32m<input class="color1" type="color" name="color1" value="#00ff00">[m
+[32m+[m	[32m<input class="color2" type="color" name="color2" value="#ff0000">[m
+[32m+[m	[32m<h2>Current CSS Background</h2>[m
+[32m+[m	[32m<h3></h3>[m
+[32m+[m	[32m<script type="text/javascript" src="script.js"></script>[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/script.js b/script.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c5a0540[m
+[1m--- /dev/null[m
+[1m+++ b/script.js[m
+[36m@@ -0,0 +1,19 @@[m
+[32m+[m[32mvar css = document.querySelector("h3");[m
+[32m+[m[32mvar color1 = document.querySelector(".color1");[m
+[32m+[m[32mvar color2 = document.querySelector(".color2");[m
+[32m+[m[32mvar body = document.getElementById("gradient");[m
+[32m+[m
+[32m+[m[32mfunction setGradient() {[m
+[32m+[m	[32mbody.style.background =[m[41m [m
+[32m+[m	[32m"linear-gradient(to right, "[m[41m [m
+[32m+[m	[32m+ color1.value[m[41m [m
+[32m+[m	[32m+ ", "[m[41m [m
+[32m+[m	[32m+ color2.value[m[41m [m
+[32m+[m	[32m+ ")";[m
+[32m+[m
+[32m+[m	[32mcss.textContent = body.style.background + ";";[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mcolor1.addEventListener("input", setGradient);[m
+[32m+[m
+[32m+[m[32mcolor2.addEventListener("input", setGradient);[m
+\ No newline at end of file[m
+[1mdiff --git a/style.css b/style.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f99dbe9[m
+[1m--- /dev/null[m
+[1m+++ b/style.css[m
+[36m@@ -0,0 +1,27 @@[m
+[32m+[m[32mbody {[m
+[32m+[m	[32mfont: 'Raleway', sans-serif;[m
+[32m+[m[32m    color: rgba(0,0,0,.5);[m
+[32m+[m[32m    text-align: center;[m
+[32m+[m[32m    text-transform: uppercase;[m
+[32m+[m[32m    letter-spacing: .5em;[m
+[32m+[m[32m    top: 15%;[m
+[32m+[m	[32mbackground: linear-gradient(to right, red , yellow); /* Standard syntax */[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mh1 {[m
+[32m+[m[32m    font: 600 3.5em 'Raleway', sans-serif;[m
+[32m+[m[32m    color: rgba(0,0,0,.5);[m
+[32m+[m[32m    text-align: center;[m
+[32m+[m[32m    text-transform: uppercase;[m
+[32m+[m[32m    letter-spacing: .5em;[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mh3 {[m
+[32m+[m	[32mfont: 900 1em 'Raleway', sans-serif;[m
+[32m+[m[32m    color: rgba(0,0,0,.5);[m
+[32m+[m[32m    text-align: center;[m
+[32m+[m[32m    text-transform: none;[m
+[32m+[m[32m    letter-spacing: 0.01em;[m
+[32m+[m
+[32m+[m[32m}[m
